@@ -8,7 +8,12 @@ var keys = tweetKeys.twitterKeys;
 var cmd = process.argv[2];
 var input = process.argv[3];
 var defaultSong = "The Sign Ace of Base";
-var defaultMovie = ""
+var defaultMovie = "Mr. Nobody";
+
+if (input !== undefined) {
+  var defaultMovie = input;
+  var defaultSong = input;
+}
 
 // will retreive Harry Tasker's tweets
 // console.log(JSON.stringify(data, null, 2));
@@ -64,7 +69,7 @@ var spotSong = function() {
 
 var findMovie = function() {
 
-    request("http://www.omdbapi.com/?t=" + input + "&plot=full&r=json&apikey=40df9e07", function(error, response, data) {
+    request("http://www.omdbapi.com/?t=" + defaultMovie + "&plot=full&r=json&apikey=40df9e07", function(error, response, data) {
 
         if ( error ) {
         console.log('Error occurred: ' + error);
