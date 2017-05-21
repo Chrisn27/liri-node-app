@@ -10,9 +10,13 @@ var input = process.argv[3];
 var defaultSong = "The Sign Ace of Base";
 var defaultMovie = "Mr. Nobody";
 
-if (input !== undefined) {
-  var defaultMovie = input;
-  var defaultSong = input;
+var convert = function() {
+  if (input !== undefined) {
+    defaultMovie = input;
+    defaultSong = input;
+  } else {
+  return false;
+  }
 }
 
 // will retreive Harry Tasker's tweets
@@ -133,10 +137,12 @@ switch (cmd.toLocaleLowerCase()) {
     break;
 
   case "spotify-this-song":
+    convert();
     spotSong();
     break;
 
   case "movie-this":
+    convert();
     findMovie();
     break;
 
