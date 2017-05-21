@@ -1,0 +1,122 @@
+{
+  "album": {
+    "album_type": "single",
+    "artists": [
+      {
+        "external_urls": {
+          "spotify": "https://open.spotify.com/artist/6xrCU6zdcSTsG2hLrojpmI"
+        },
+        "href": "https://api.spotify.com/v1/artists/6xrCU6zdcSTsG2hLrojpmI",
+        "id": "6xrCU6zdcSTsG2hLrojpmI",
+        "name": "José González",
+        "type": "artist",
+        "uri": "spotify:artist:6xrCU6zdcSTsG2hLrojpmI"
+      }
+    ],
+    "available_markets": [
+      "CA",
+      "MX",
+      "US"
+    ],
+    "external_urls": {
+      "spotify": "https://open.spotify.com/album/1bOzvOad5Oirmr1ewGlnKs"
+    },
+    "href": "https://api.spotify.com/v1/albums/1bOzvOad5Oirmr1ewGlnKs",
+    "id": "1bOzvOad5Oirmr1ewGlnKs",
+    "images": [
+      {
+        "height": 640,
+        "url": "https://i.scdn.co/image/b1a86b56bb22805cd9bbe008c52c9f0777003adf",
+        "width": 640
+      },
+      {
+        "height": 300,
+        "url": "https://i.scdn.co/image/94a737b72612b2590c48b17a015abe36e250b4e7",
+        "width": 300
+      },
+      {
+        "height": 64,
+        "url": "https://i.scdn.co/image/70e578c5941db68d7517f498599892f93512ee73",
+        "width": 64
+      }
+    ],
+      "name": "Stay Alive (From The Secret Life Of Walter Mitty)",
+    "type": "album",
+    "uri": "spotify:album:1bOzvOad5Oirmr1ewGlnKs"
+  },
+  "artists": [
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/6xrCU6zdcSTsG2hLrojpmI"
+      },
+      "href": "https://api.spotify.com/v1/artists/6xrCU6zdcSTsG2hLrojpmI",
+      "id": "6xrCU6zdcSTsG2hLrojpmI",
+      "name": "José González",
+      "type": "artist",
+      "uri": "spotify:artist:6xrCU6zdcSTsG2hLrojpmI"
+    }
+  ],
+  "available_markets": [
+    "CA",
+    "MX",
+    "US"
+  ],
+  "disc_number": 1,
+  "duration_ms": 266906,
+  "explicit": false,
+  "external_ids": {
+    "isrc": "USFM91300095"
+  },
+  "external_urls": {
+    "spotify": "https://open.spotify.com/track/0ZNYGrmcehorhh9JOeg5Iv"
+  },
+  "href": "https://api.spotify.com/v1/tracks/0ZNYGrmcehorhh9JOeg5Iv",
+  "id": "0ZNYGrmcehorhh9JOeg5Iv",
+  "name": "Stay Alive",
+  "popularity": 65,
+  "preview_url": "https://p.scdn.co/mp3-preview/58c0e8b0529936936ca8362dc458a0afc5eeddae?cid=null",
+  "track_number": 1,
+  "type": "track",
+  "uri": "spotify:track:0ZNYGrmcehorhh9JOeg5Iv"
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+40df9e07
+
+IncomingMessage {
+
+body: '{"Title":"Remember the Titans","Year":"2000","Rated":"PG","Released":"29 Sep 2000","Runtime":"113 min","Genre":"Biography, Drama, Sport","Director":"Boaz Yakin","Writer":"Gregory
+Allen Howard","Actors":"Denzel Washington, Will Patton, Wood Harris, Ryan Hurst","Plot":"The true story of a newly appointed African-American coach and his high school team on their first
+season as a racially integrated unit.","Language":"English","Country":"USA","Awards":"8 wins & 17 nominations.","Poster":"https://images-na.ssl-images-amazon.com/images/M/MV5BYThkMzgxNjEtM
+zFiOC00MTI0LWI5MDItNDVmYjA4NzY5MDQ2L2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg","Ratings":[{"Source":"Internet Movie Database","Value":"7.8/10"},{"Source":"Rotten Tomatoes",
+"Value":"73%"},{"Source":"Metacritic","Value":"48/100"}],"Metascore":"48","imdbRating":"7.8","imdbVotes":"168,289","imdbID":"tt0210945","Type":"movie","DVD":"20 Mar 2001","BoxOffice":"$114
+,297,071","Production":"Walt Disney Pictures","Website":"http://disney.go.com/disneypictures/rememberthetitans/index.html","Response":"True"}' }
+
+}
+
+{"Title":"Remember the Titans","Year":"2000",
+"Rated":"PG",
+"Released":"29 Sep 2000",
+"Runtime":"113 min",
+"Genre":"Biography, Drama, Sport",
+"Director":"Boaz Yakin",
+"Writer":"Gregory Allen Howard",
+"Actors":"Denzel Washington, Will Patton, Wood Harris, Ryan Hurst",
+"Plot":"The true story of a newly appointed African-American coach and his high school team on their first season as
+ a racially integrated unit.",
+ "Language":"English",
+ "Country":"USA",
+ "Awards":"8 wins & 17 nominations.",
+ "Poster":"https://images-na.ssl-images-amazon.com/images/M/MV5BYThkMzgxNjEtMzFiOC00MT
+I0LWI5MDItNDVmYjA4NzY5MDQ2L2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
+"Ratings":[{"Source":"Internet Movie Database","Value":"7.8/10"},{"Source":"Rotten Tomatoes","Value":"
+73%"},{"Source":"Metacritic","Value":"48/100"}],
+"Metascore":"48",
+"imdbRating":"7.8",
+"imdbVotes":"168,289",
+"imdbID":"tt0210945",
+"Type":"movie",
+"DVD":"20 Mar 2001",
+"BoxOffice":"$114,297,071"
+,"Production":"Walt Disney Pictures",
+"Website":"http://disney.go.com/disneypictures/rememberthetitans/index.html",
+"Response":"True"}
