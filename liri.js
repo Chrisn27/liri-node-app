@@ -108,10 +108,11 @@ var justDoIt = function() {
         return;
       }
   dataArr = data.split(",");
-  var removeQuotes = dataArr[1];
-  songName = removeQuotes.replace(/["]+/g, "");
-  console.log(songName);
-  spotSong(dataArr[0], songName);
+  //var removeQuotes = dataArr[1];
+  //songName = removeQuotes.replace(/["]+/g, "");
+  //console.log(songName);
+  defaultSong = dataArr[1];
+  spotSong();
   //spotSong("'" + songName + "'");
   })
 }
@@ -137,12 +138,12 @@ switch (cmd.toLocaleLowerCase()) {
     break;
 
   case "spotify-this-song":
-    convert();
+    convert(defaultSong);
     spotSong();
     break;
 
   case "movie-this":
-    convert();
+    convert(defaultMovie);
     findMovie();
     break;
 
