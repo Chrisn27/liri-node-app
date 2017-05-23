@@ -10,6 +10,7 @@ var input = process.argv[3];
 var defaultSong = "The Sign Ace of Base";
 var defaultMovie = "Mr. Nobody";
 
+// songs and movie search have a default value if left blank.  If the user inputs a value, the default is updated to the input
 var convert = function() {
   if (input !== undefined) {
     defaultMovie = input;
@@ -19,16 +20,28 @@ var convert = function() {
   }
 }
 
-// will retreive Harry Tasker's tweets
-// console.log(JSON.stringify(data, null, 2));
+/*TODO: 
 
-/*
-TODO:
+Update write to log to append cmds and output on new lines
+Rotten tomatoes link?
 
-Fix do it script to find right song
-add default song to find on spotSong
-add default to omdb search
 */
+
+// writes to the log file
+var log = function(data) {
+
+  fs.appendFile("./challengelog.txt", cmd + " " + input + "\\n");
+  fs.appendFile("./challengelog.txt", JSON.stringify(data, null, 2), function(err) {
+    if (err) {
+      return console.log(err);
+    }
+
+    console.log("The log has been updated");
+  
+  });
+}
+
+// will retreive Harry Tasker's tweets
 
 var myTweets = function() {
   var client = new twitter(keys);
@@ -36,15 +49,19 @@ var myTweets = function() {
 
   client.get('statuses/user_timeline', params, function(error, tweets, response) {
 
+    var data = [];
     if (!error) {
       for (var i = 0; i < tweets.length; i++) {
-      console.log([i + 1] + ": " + tweets[i].created_at + ": " + tweets[i].text);
-      }
+      data.push([i + 1] + ": " + tweets[i].created_at + ": " + tweets[i].text);
+    }
+    console.log(JSON.stringify(data, null, 2));
+    log(data);
     }
 
   });
 };
 
+// searches spotify for song information and displays the first result
 var spotSong = function() {
 
   spotify.search({ type: 'track', query: defaultSong }, function(err, data) {
@@ -54,15 +71,21 @@ var spotSong = function() {
         return;
     }
 
-    var firstResult = data.tracks.items[0];
-    
-    //console.log(JSON.stringify(firstResult, null, 2));
-  
+    var firstResult = data.tracks.items[0]; 
+    var data = [];
+
     if (firstResult !== undefined) {
-      console.log("Artist: " + firstResult.album.artists[0].name);
-      console.log("Song Name: " + firstResult.name);
-      console.log("Preview: " + firstResult.preview_url);
-      console.log("Album: " + firstResult.album.name);
+
+      for (i = 0; i < 1; i++) {
+        data.push({
+          'Artist ': firstResult.album.artists[0].name,
+          'Song Name ': firstResult.name,
+          'Preview ': firstResult.preview_url,
+          'abum ': firstResult.album.name
+        })
+      }
+      console.log(JSON.stringify(data, null, 2));
+      log(data);
     } else {
       console.log("Please try again, no results were found");
     }
@@ -71,6 +94,7 @@ var spotSong = function() {
 
 }
 
+// finds movie information on OMDP
 var findMovie = function() {
 
     request("http://www.omdbapi.com/?t=" + defaultMovie + "&plot=full&r=json&apikey=40df9e07", function(error, response, data) {
@@ -81,26 +105,29 @@ var findMovie = function() {
       }
 
       var info = JSON.parse(data);
-      //console.log(info);
+      var movieData = [];
 
       if (info.Title !== undefined) {
-        console.log("Title: " + info.Title);
-        console.log("Released: " + info.Released);
-        console.log("IMDB Rating: " + info.imdbRating);
-        console.log("Country: " + info.Country);
-        console.log("Language: " + info.Language);
-        console.log("Plot: " + info.Plot);
-        console.log("Actors: " + info.Actors);
-        //console.log("Title: " + info.Title);
+        movieData.push({
+          "Title ": info.Title,
+          "Released ": info.Released,
+          "IMDB Rating ": info.imdbRating,
+          "Country ": info.Country,
+          "Language ": info.Language,
+          "Plot ": info.Plot,
+          "Actors": info.Actors
+        })
+        console.log(JSON.stringify(movieData, null, 2));
+        log(movieData);     
       } else {
         console.log("Please try again, no results were found");
       }
-
 
     });
 
 }
 
+// Does what random.txt says to do
 var justDoIt = function() {
   fs.readFile("./random.txt", 'utf8', function(err, data) {
       if (err) {
@@ -108,17 +135,17 @@ var justDoIt = function() {
         return;
       }
   dataArr = data.split(",");
-  //var removeQuotes = dataArr[1];
-  //songName = removeQuotes.replace(/["]+/g, "");
-  //console.log(songName);
   defaultSong = dataArr[1];
   spotSong();
-  //spotSong("'" + songName + "'");
+
   })
 }
 
+// help, called on null inputs and incorrect cmds
 var displayHelp = function() {
 
+    console.log("How to use Liri:");
+    console.log("----------------------------------------------");
     console.log("To display Harry Tasker's last 20 tweets: <node liri.js my-tweets>");
     console.log("----------------------------------------------");
     console.log("To search for Spotify song information: <node liri.js spotify-this-song 'song name'> -- 'quotes around song name'");
@@ -130,6 +157,9 @@ var displayHelp = function() {
 }
 
 // cases to capture inputs
+if (cmd === undefined) {
+  cmd = "help";
+}
 
 switch (cmd.toLocaleLowerCase()) {
 
