@@ -81,7 +81,7 @@ var spotSong = function() {
           'Artist ': firstResult.album.artists[0].name,
           'Song Name ': firstResult.name,
           'Preview ': firstResult.preview_url,
-          'abum ': firstResult.album.name
+          'album ': firstResult.album.name
         })
       }
       console.log(JSON.stringify(data, null, 2));
