@@ -21,23 +21,17 @@ var convert = function() {
 }
 
 /*TODO: 
-
-Update write to log to append cmds and output on new lines
-Rotten tomatoes link?
-
+Maybe update log to print on new line and update entire function to an object
 */
 
-// writes to the log file
+// writes to the log file in a jumbled mess
 var log = function(data) {
-
-  fs.appendFile("./challengelog.txt", cmd + " " + input + "\\n");
-  fs.appendFile("./challengelog.txt", JSON.stringify(data, null, 2), function(err) {
+  fs.appendFile("./challengelog.txt", "\nCommand run: \n" + cmd + " " + input);
+  fs.appendFile("./challengelog.txt", "\nResults: \n" + JSON.stringify(data, null, 2), function(err) {
     if (err) {
       return console.log(err);
     }
-
-    console.log("The log has been updated");
-  
+    console.log("The log has been updated with " + cmd + " information");
   });
 }
 
@@ -53,11 +47,10 @@ var myTweets = function() {
     if (!error) {
       for (var i = 0; i < tweets.length; i++) {
       data.push([i + 1] + ": " + tweets[i].created_at + ": " + tweets[i].text);
+      console.log([i + 1] + ": " + tweets[i].created_at + ": " + tweets[i].text);
     }
-    console.log(JSON.stringify(data, null, 2));
     log(data);
     }
-
   });
 };
 
@@ -75,17 +68,16 @@ var spotSong = function() {
     var data = [];
 
     if (firstResult !== undefined) {
-
       for (i = 0; i < 1; i++) {
         data.push({
-          'Artist ': firstResult.album.artists[0].name,
-          'Song Name ': firstResult.name,
-          'Preview ': firstResult.preview_url,
-          'album ': firstResult.album.name
+          artist: firstResult.album.artists[0].name,
+          song_Name: firstResult.name,
+          preview: firstResult.preview_url,
+          album: firstResult.album.name
         })
       }
-      console.log(JSON.stringify(data, null, 2));
       log(data);
+      console.log("Artist: " + data[0].artist + "\nSong Name: " + data[0].song_Name + "\nPreview: " + data[0].preview + "\nAlbum: " + data[0].album)
     } else {
       console.log("Please try again, no results were found");
     }
@@ -109,15 +101,17 @@ var findMovie = function() {
 
       if (info.Title !== undefined) {
         movieData.push({
-          "Title ": info.Title,
-          "Released ": info.Released,
-          "IMDB Rating ": info.imdbRating,
-          "Country ": info.Country,
-          "Language ": info.Language,
-          "Plot ": info.Plot,
-          "Actors": info.Actors
+          title: info.Title,
+          released: info.Released,
+          imdb_Rating: info.imdbRating,
+          country: info.Country,
+          language: info.Language,
+          plot: info.Plot,
+          actors: info.Actors,
+          website: info.Website
         })
-        console.log(JSON.stringify(movieData, null, 2));
+        console.log("Title: " + movieData[0].title + "\nReleased: " + movieData[0].released + "\nIMDB Rating: " + "\nCountry: " + movieData[0].country + "\nLanguage: " + movieData[0].language
+        + "\nPlot: " + movieData[0].plot + "\nActors: " + movieData[0].actors + "\nWebsite: " + movieData[0].website);
         log(movieData);     
       } else {
         console.log("Please try again, no results were found");
