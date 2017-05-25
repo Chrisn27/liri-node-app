@@ -26,8 +26,10 @@ Maybe update log to print on new line and update entire function to an object
 
 // writes to the log file in a jumbled mess
 var log = function(data) {
-  fs.appendFile("./challengelog.txt", "\nCommand run: \n" + cmd + " " + input);
-  fs.appendFile("./challengelog.txt", "\nResults: \n" + JSON.stringify(data, null, 2), function(err) {
+  fs.appendFile("./challengelog.txt", "\n")
+  fs.appendFile("./challengelog.txt", "Command: " + cmd + " Input: " + input);
+  fs.appendFile("./challengelog.txt", "\n")
+  fs.appendFile("./challengelog.txt", JSON.stringify(data, null, 2), function(err) {
     if (err) {
       return console.log(err);
     }
